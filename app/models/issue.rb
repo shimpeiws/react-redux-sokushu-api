@@ -11,4 +11,8 @@
 
 class Issue < ApplicationRecord
   has_many :comments, -> { order(created_at: :asc) }, class_name: 'Comment'
+
+  def created
+    created_at.strftime('%Y/%m/%d %H:%M:%S')
+  end
 end
