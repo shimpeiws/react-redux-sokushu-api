@@ -10,7 +10,7 @@
 #
 
 class IssueSerializer < ActiveModel::Serializer
-  attributes :id, :title, :status, :comment_count, :created, :updated
+  attributes :id, :title, :status, :comment_count, :created_at, :created, :updated_at, :updated
 
   has_many :comments
 
