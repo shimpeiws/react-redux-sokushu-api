@@ -3,10 +3,10 @@ class IssueCommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
 
   def create
-    @comment = Comment.new(issue_params)
+    @comment = Comment.new(comment_params)
 
     unless @comment.save
-      return render json: @issue.errors, status: :unprocessable_entity
+      return render json: @comment.errors, status: :unprocessable_entity
     end
 
     render json: @comment
