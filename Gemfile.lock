@@ -94,6 +94,7 @@ GEM
     puma (3.4.0)
     rack (2.0.0.rc1)
       json
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.rc1)
@@ -166,6 +167,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   puma (~> 3.0)
+  rack-cors
   rails (>= 5.0.0.rc1, < 5.1)
   rails_12factor
   spring
