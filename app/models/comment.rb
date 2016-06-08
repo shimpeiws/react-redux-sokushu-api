@@ -12,12 +12,4 @@
 
 class Comment < ApplicationRecord
   belongs_to :issue
-
-  def created
-    created_at.strftime('%Y/%m/%d %H:%M:%S')
-  end
-
-  def updated
-    updated_at.strftime('%Y/%m/%d %H:%M:%S')
-  end
 end

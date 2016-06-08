@@ -22,6 +22,8 @@ gem 'rack-cors'
 
 gem 'active_model_serializers', '~> 0.10.0'
 
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 5.x
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do
