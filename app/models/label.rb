@@ -10,14 +10,14 @@
 #
 
 class Label < ApplicationRecord
-  validates :name, presence: true
-  validates :color_code, presence: true
+  validates :name, presence: true, prohibited_word: true
+  validates :color_code, presence: true, prohibited_word: true
 
   validate :color_code_check
 
   private
   def color_code_check
-    errors.add(:base, :invalid_color) unless hexadecimal_color_code?(color_code)
+    errors.add(:base, "Invalid Color") unless hexadecimal_color_code?(color_code)
   end
 
   def hexadecimal_color_code?(color_code)
