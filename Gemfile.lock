@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: 91d6703f32568b1a822f5897870b8feb081cbd02
+  branch: master
+  specs:
+    rails-i18n (5.0.0.beta4)
+      i18n (~> 0.7)
+      railties (~> 5.0.0.beta1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -167,6 +176,7 @@ DEPENDENCIES
   pry-stack_explorer
   puma (~> 3.0)
   rails (>= 5.0.0.rc1, < 5.1)
+  rails-i18n!
   rails_12factor
   spring
   spring-watcher-listen (~> 2.0.0)
