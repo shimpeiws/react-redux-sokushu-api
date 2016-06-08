@@ -17,10 +17,10 @@ class IssueSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
 
   def created
-    time_ago_in_words(object.created_at)
+    I18n.t('time_ago', time: time_ago_in_words(object.created_at))
   end
 
   def updated
-    time_ago_in_words(object.updated_at)
+    I18n.t('time_ago', time: time_ago_in_words(object.updated_at))
   end
 end
