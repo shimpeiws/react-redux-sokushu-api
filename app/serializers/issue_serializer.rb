@@ -13,4 +13,14 @@ class IssueSerializer < ActiveModel::Serializer
   attributes :id, :title, :status, :comment_count, :created, :updated
 
   has_many :comments
+
+  include ActionView::Helpers::DateHelper
+
+  def created
+    time_ago_in_words(object.created_at) + ' ago'
+  end
+
+  def updated
+    time_ago_in_words(object.updated_at) + ' ago'
+  end
 end

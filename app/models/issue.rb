@@ -14,14 +14,6 @@ class Issue < ApplicationRecord
 
   enum status: { close: 0, open: 1 }
 
-  def created
-    created_at.strftime('%Y/%m/%d %H:%M:%S')
-  end
-
-  def updated
-    updated_at.strftime('%Y/%m/%d %H:%M:%S')
-  end
-
   def comment_count
     comments.length
   end

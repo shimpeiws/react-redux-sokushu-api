@@ -14,4 +14,14 @@ class CommentSerializer < ActiveModel::Serializer
   attributes :id, :user_name, :content, :created, :updated
 
   belongs_to :issue_id
+
+  include ActionView::Helpers::DateHelper
+
+  def created
+    time_ago_in_words(object.created_at) + ' ago'
+  end
+
+  def updated
+    time_ago_in_words(object.updated_at) + ' ago'
+  end
 end
