@@ -10,6 +10,8 @@
 #
 
 class Issue < ApplicationRecord
+  validates :title, presence: true, prohibited_word: true
+
   has_many :comments, -> { order(created_at: :asc) }, class_name: 'Comment'
 
   enum status: { close: 0, open: 1 }

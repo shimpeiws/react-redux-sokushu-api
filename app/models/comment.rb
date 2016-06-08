@@ -11,5 +11,8 @@
 #
 
 class Comment < ApplicationRecord
+  validates :content, presence: true, prohibited_word: true
+  validates :user_name, presence: true, prohibited_word: true
+
   belongs_to :issue
 end
