@@ -20,6 +20,7 @@
 #
 
 Rails.application.routes.draw do
+  match "*all" => "application#cors_preflight_check", :constraints => { :method => "OPTIONS" }
   resources :issues, only: [:index, :show, :create, :update, :destroy], defaults: {format: :json} do
     resources :comments,controller: 'issue_comments', param: :comment_id, only: [:create, :update, :destroy]
   end
