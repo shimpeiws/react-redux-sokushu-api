@@ -11,17 +11,9 @@
 #
 
 class CommentSerializer < ActiveModel::Serializer
+  include DateTimeConcern
+
   attributes :id, :user_name, :content, :created_at, :created, :updated_at, :updated
 
   belongs_to :issue_id
-
-  include ActionView::Helpers::DateHelper
-
-  def created
-    I18n.t('time_ago', time: time_ago_in_words(object.created_at))
-  end
-
-  def updated
-    I18n.t('time_ago', time: time_ago_in_words(object.updated_at))
-  end
 end
