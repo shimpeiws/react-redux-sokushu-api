@@ -36,7 +36,7 @@ class IssueCommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = @issue.comments.find(comment_params[:comment_id])
+    @comment = @issue.comments.find(params[:comment_id])
     render nothing: true, status: :unprocessable_entity unless @comment.present?
   end
 end
