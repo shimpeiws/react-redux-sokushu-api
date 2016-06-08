@@ -1,5 +1,4 @@
 class IssuesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
   before_action :set_issue, only: [:show, :update, :destroy]
 
   def index

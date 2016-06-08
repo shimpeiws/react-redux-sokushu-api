@@ -1,5 +1,4 @@
 class IssueCommentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
   before_action :set_issue
   before_action :set_comment, only: [:update, :destroy]
 
