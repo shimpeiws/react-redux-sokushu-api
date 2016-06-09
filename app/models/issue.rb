@@ -18,6 +18,8 @@ class Issue < ApplicationRecord
   belongs_to :assignee, class_name: "User", foreign_key: :assignee_id, optional: true
 
   has_many :comments, -> { order(created_at: :asc) }, class_name: 'Comment'
+  has_many :labelings, class_name: "Labeling", foreign_key: :issue_id, dependent: :destroy
+  has_many :labels, through: :labelings, source: :label
 
   enum status: { close: 0, open: 1 }
 
