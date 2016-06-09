@@ -40,7 +40,7 @@ class IssuesController < ApplicationController
   end
 
   def issue_params
-    params.require(:issue).permit(:title, :status, :content)
+    params.require(:issue).permit(:title, :status, :content, :assignee_id)
   end
 
   def update_params
