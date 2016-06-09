@@ -24,4 +24,5 @@ Rails.application.routes.draw do
     resources :comments,controller: 'issue_comments', param: :comment_id, only: [:create, :update, :destroy]
   end
   resources :labels, defaults: {format: :json}
+  resources :users, only: [:index], defaults: {format: :json}
 end
