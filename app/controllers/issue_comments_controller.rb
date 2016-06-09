@@ -6,7 +6,7 @@ class IssueCommentsController < ApplicationController
     @comment = @issue.comments.new(comment_params)
 
     unless @comment.save
-      return render json: @comment.errors.full_messages, status: :unprocessable_entity
+      return render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
 
     render json: @comment
@@ -16,7 +16,7 @@ class IssueCommentsController < ApplicationController
     if @comment.update(comment_params)
       render json: @comment
     else
-      render json: @comment.errors.full_messages, status: :unprocessable_entity
+      render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

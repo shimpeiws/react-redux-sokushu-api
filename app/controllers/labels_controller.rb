@@ -20,7 +20,7 @@ class LabelsController < ApplicationController
     if @label.save
       render json: @label, status: :created, location: @label
     else
-      render json: @label.errors.full_messages, status: :unprocessable_entity
+      render json: { errors: @label.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class LabelsController < ApplicationController
     if @label.update(label_params)
       render json: @label
     else
-      render json: @label.errors.full_messages, status: :unprocessable_entity
+      render json: { errors: @label.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

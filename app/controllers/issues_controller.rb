@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
 
     unless @issue.save
-      return render json: @issue.errors.full_messages, status: :unprocessable_entity
+      return render json: { errors: @issue.errors.full_messages }, status: :unprocessable_entity
     end
 
     render json: @issue
@@ -25,7 +25,7 @@ class IssuesController < ApplicationController
     if @issue.update(update_params)
       render json: @issue
     else
-      render json: @issue.errors.full_messages, status: :unprocessable_entity
+      render json: { errors: @issue.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
