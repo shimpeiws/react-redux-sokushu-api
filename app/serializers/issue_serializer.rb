@@ -14,7 +14,7 @@
 class IssueSerializer < ActiveModel::Serializer
   include DateTimeConcern
 
-  attributes :id, :title, :status, :comment_count, :assignee, :created_at, :created, :updated_at, :updated, :content
+  attributes :id, :title, :status, :comment_count, :assignee, :created_at, :created, :updated_at, :updated, :content, :labels
 
   has_many :comments
   belongs_to :assignee, class_name: "User"
