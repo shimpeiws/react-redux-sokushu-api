@@ -2,7 +2,24 @@ class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :update, :destroy]
 
   def index
-    @issues = Issue.all.order('issues.updated_at DESC')
+    @issues = Issue.all
+
+    case params[:sort_type]
+      when 'id'
+        @issues = @issues.order(id: :desc)
+      when 'id_reverse'
+        @issues = @issues.order(id: :asc)
+      when 'updated'
+        @issues = @issues.order(updated_at: :desc)
+      when 'updated_reverse'
+        @issues = @issues.order(updated_at: :asc)
+      when 'title'
+        @issues = @issues.order(title: :desc)
+      when 'title_reverse'
+        @issues = @issues.order(title: :asc)
+      else
+        @issues = @issues.order(updated_at: :desc)
+    end
 
     @issues = @issues.where(status: params[:status]) if params[:status].present?
     @issues = @issues.where(assignee_id: params[:assignee_id]) if params[:assignee_id].present?
