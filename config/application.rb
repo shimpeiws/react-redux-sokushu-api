@@ -33,5 +33,7 @@ module ReactReduxSokushuApi
       'Access-Control-Allow-Origin' => '*',
       'Access-Control-Request-Method' => '*'
     }
+
+    config.autoload_paths += %W(#{config.root}/lib/validations)
   end
 end

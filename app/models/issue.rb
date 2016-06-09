@@ -11,7 +11,8 @@
 #
 
 class Issue < ApplicationRecord
-  validate :content, presence: true 
+  validates :content, presence: true, prohibited_word: true
+  validates :title, presence: true, prohibited_word: true
 
   has_many :comments, -> { order(created_at: :asc) }, class_name: 'Comment'
 
