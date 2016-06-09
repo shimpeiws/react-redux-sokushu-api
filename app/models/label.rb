@@ -15,6 +15,9 @@ class Label < ApplicationRecord
 
   validate :color_code_check
 
+  has_many :labelings, class_name: "Labeling", foreign_key: :label_id, dependent: :destroy
+  has_many :issues, through: :labelings, source: :label
+
   private
   def color_code_check
     errors.add(:base, "Invalid Color") unless hexadecimal_color_code?(color_code)
