@@ -12,7 +12,7 @@
 class IssueSerializer < ActiveModel::Serializer
   include DateTimeConcern
 
-  attributes :id, :title, :status, :comment_count, :created_at, :created, :updated_at, :updated
+  attributes :id, :title, :status, :comment_count, :created_at, :created, :updated_at, :updated, :content
 
   has_many :comments
 end
