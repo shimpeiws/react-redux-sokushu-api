@@ -9,4 +9,5 @@
 #
 
 class User < ApplicationRecord
+  validates :name, presence: true, prohibited_word: true
 end
