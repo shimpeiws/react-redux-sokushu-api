@@ -1,4 +1,4 @@
 class Labeling < ApplicationRecord
-  belongs_to :label_id
-  belongs_to :issue_id
+  belongs_to :label
+  belongs_to :issue
 end
