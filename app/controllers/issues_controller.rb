@@ -2,7 +2,7 @@ class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :update, :destroy]
 
   def index
-    @issues = Issue.all
+    @issues = Issue.all.order('updated_at DESC')
 
     render json: @issues
   end
