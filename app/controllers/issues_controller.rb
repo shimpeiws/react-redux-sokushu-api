@@ -46,7 +46,9 @@ class IssuesController < ApplicationController
   def update_params
     {
       title: issue_params[:title],
-      status: Issue.statuses[issue_params[:status]]
+      status: Issue.statuses[issue_params[:status]],
+      assignee_id: issue_params[:assignee_id],
+      label_ids: issue_params[:labels_ids],
     }
   end
 end
