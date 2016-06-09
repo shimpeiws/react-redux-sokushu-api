@@ -10,4 +10,6 @@
 
 class User < ApplicationRecord
   validates :name, presence: true, prohibited_word: true
+
+  has_many :issues, class_name: "Issue", foreign_key: :assignee_id
 end

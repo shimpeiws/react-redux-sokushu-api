@@ -2,12 +2,13 @@
 #
 # Table name: issues
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  status     :integer          default("open"), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  content    :text
+#  id          :integer          not null, primary key
+#  title       :string
+#  status      :integer          default("open"), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  content     :text
+#  assignee_id :integer
 #
 
 class IssueSerializer < ActiveModel::Serializer
@@ -16,4 +17,5 @@ class IssueSerializer < ActiveModel::Serializer
   attributes :id, :title, :status, :comment_count, :created_at, :created, :updated_at, :updated
 
   has_many :comments
+  belongs_to :assignee, class_name: "User"
 end
