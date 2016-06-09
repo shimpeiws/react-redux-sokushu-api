@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   def index
     @issues = Issue.all.order('updated_at DESC')
 
-    @issues = issues.where(status: params[:status]) if params[:status].present?
+    @issues = @issues.where(status: params[:status]) if params[:status].present?
 
     render json: @issues
   end
