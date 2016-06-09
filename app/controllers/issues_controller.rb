@@ -2,9 +2,11 @@ class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :update, :destroy]
 
   def index
-    @issues = Issue.all.order('updated_at DESC')
+    @issues = Issue.all.order('issues.updated_at DESC')
 
     @issues = @issues.where(status: params[:status]) if params[:status].present?
+    @issues = @issues.where(assignee_id: params[:assignee_id]) if params[:assignee_id].present?
+    @issues = @issues.with_label(params[:label_ids]) if params[:label_ids].present?
 
     render json: @issues
   end

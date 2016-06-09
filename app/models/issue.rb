@@ -23,6 +23,10 @@ class Issue < ApplicationRecord
 
   enum status: { close: 0, open: 1 }
 
+  scope :with_label, ->(label_ids) {
+    includes(:labels).where(labels: { id: label_ids })
+  }
+
   def comment_count
     comments.length
   end
